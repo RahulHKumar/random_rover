@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" 
+            filename="libgazebo_ros_control.so">
+      <robotNamespace>/astra_rover</robotNamespace>
+      <robotParam>/robot_description</robotParam>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+ <!--
+    The plugin broadcasts a body's pose and rates through ROS nav_msgs::Odometry message.
+    The plugin broadcasts pose and rate of a body named "chassis" over ROS topic name "astra_rover/odom".
+  -->
+
+  <gazebo>
+    <plugin name="ground_truth"
+            filename="libgazebo_ros_p3d.so">
+      <frameName>world</frameName>
+      <bodyName>chassis</bodyName>
+      <topicName>/astra_rover/odom</topicName>
+      <updateRate>30.0</updateRate>
+    </plugin>
+  </gazebo>
+
+  <!-- Wheel Train -->
+  <gazebo reference="rocker_hinge_left">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="rocker_left_front">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+
+  <gazebo reference="rocker_hinge_right">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="rocker_right_front">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="rocker_right_back">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="rocker_left_back">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+
+  <gazebo reference="bogey_hinge_left">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="bogey_hinge_right">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+
+  <gazebo reference="bogey_back_left">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="bogey_back_right">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="bogey_steering_left">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+    <gazebo reference="bogey_steering_right">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+
+  <gazebo reference="bogey_hinge_left">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="bogey_hinge_right">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="rocker_steering_left">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  <gazebo reference="rocker_steering_right">
+    <mu1>0.3</mu1>
+    <mu2>0.3</mu2>
+  </gazebo>
+
+  </robot>

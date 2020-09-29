@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot name="astra_rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    	<!-- Robot Mechanical Description-->
+	<xacro:include filename="$(find astra_rover_description)/urdf/astra_rover_mechdesc.xacro" />
+	<!-- Gazebo aspects of the robot -->
+	<xacro:include filename="$(find astra_rover_description)/urdf/astra_rover.gazebo" />
+	
+	<astra_rover_mechdesc/>
+	
+
+</robot>

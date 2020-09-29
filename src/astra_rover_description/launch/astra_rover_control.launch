@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <rosparam file="$(find astra_rover_description)/config/astra_rover_control.yaml"
+            command="load"/>
+
+  <node name="robot_state_publisher_astra_rover" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+            <param name="publish_frequency" type="double" value="5.0" />
+            
+            <remap from="/joint_states" to="/astra_rover/joint_states" />
+        </node>
+
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="--namespace=/astra_rover
+                              joint_state_controller 
+                              wheel_left_1_joint_velocity_controller
+                              wheel_left_2_joint_velocity_controller
+                              wheel_left_3_joint_velocity_controller
+                              wheel_right_1_joint_velocity_controller
+                              wheel_right_2_joint_velocity_controller
+                              wheel_right_3_joint_velocity_controller
+                              rocker_hinge_left_position_controller
+                              bogey_hinge_left_position_controller
+                              rocker_hinge_left_position_controller
+                              rocker_hinge_right_position_controller
+                              bogey_hinge_right_position_controller
+                              bogey_steering_left_joint_position_controller
+                              rocker_steering_left_joint_position_controller
+                              bogey_steering_right_joint_position_controller
+                              rocker_steering_right_joint_position_controller
+                               --shutdown-timeout 3">
+  </node>
+
+</launch>

@@ -1,0 +1,9 @@
+<launch>
+   <node name="astra_rover_acker_man_node"
+		 pkg="astra_rover_description"
+		 type="ackerman_6_wheels.py"
+		 respawn="false"
+		 output="screen"
+    	 args=""/>
+ 		  
+</launch>

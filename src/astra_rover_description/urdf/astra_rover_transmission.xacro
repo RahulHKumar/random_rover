@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+   <xacro:macro name="wheel_trasnmission" params="wheel_name">
+
+    <transmission name="${wheel_name}_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${wheel_name}_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${wheel_name}Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  </xacro:macro>
+
+  <xacro:macro name="steering_trasnmission" params="steering_name">
+
+    <transmission name="${steering_name}_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${steering_name}_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${steering_name}Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  </xacro:macro>
+
+  <xacro:macro name="rocker_hinge_trasnmission" params="hinge_name">
+
+    <transmission name="$(hinge_name)_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="$(hinge_name)_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="$(hinge_name)Motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  </xacro:macro>
+
+</robot>
